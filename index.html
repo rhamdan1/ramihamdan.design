@@ -1,0 +1,92 @@
+---
+title: Zack Gemmell
+summary: Zack Gemmell is product designer living and working in San Diego, California.
+---
+
+
+<html lang="en">
+{% include head.html %}
+    <body id="home">
+        <header class="home-header">
+            <a href="#home" class="logo">
+               <p>{{site.name}}</p>
+            </a>
+            <nav class="home-header-nav">
+               <a href="#projects">Work</a>
+               <a href="#about">About</a>
+            </nav>
+        </header>
+
+        <div class="wrapper-home">
+            <div class="wrapper-intro">
+                <section class="intro">
+                   <h1 class="intro-greeting">Hi, I'm {{site.name}}.</h1>
+                   <span class='intro-bio'>A product designer working on design systems.</span>
+                </section>
+                <div class="intro-scroll">
+                   <div></div>
+                </div>
+            </div>
+            <section id="projects">
+               <h2>Work</h2>
+                <ol>
+                   {% for post in site.posts limit: 10 %}
+                       {% if post.categories contains 'work' %}
+                          {% if post.type contains 'Featured' %}
+                             <li class="tile-work-featured">
+                                <a>
+                                    <img class= "tile-work-thumbnail-featured" src="{{ post.thumbnail }}" alt="">
+                                    <div class="tile-work-description-featured">
+                                       <span class="tile-work-description-company">{{ post.company}}</span>
+                                       <h2 class="tile-work-description-title">{{ post.title }}</h2>
+                                       <p class="tile-work-description-summary">{{ post.summary }}</p>
+                                    </div>
+                                </a>
+                             </li>
+                          {% else %}
+                          {% endif %}
+                       {% endif %}
+                   {% endfor %}
+                    {% for post in site.posts limit: 10 %}
+                        {% if post.categories contains 'work' %}
+                           {% if post.type contains 'Featured' %}
+                           {% else %}
+                              <li class="tile-work">
+                                <a href="{{site.baseurl}}{{ post.url }}">
+                                    <img class= "tile-work-thumbnail" src="{{site.baseurl}}{{ post.thumbnail }}" alt="{{ post.thumbnailDesc }}">
+                                    <div class="tile-work-description">
+                                       <span class="tile-work-description-company">{{ post.company}}</span>
+                                       <h2 class="tile-work-description-title">{{ post.title }}</h2>
+                                       <p class="tile-work-description-summary">{{ post.summary }}</p>
+                                       <button class="tile-work-cta">Read More</button>
+                                    </div>
+                                </a>
+                              </li>
+                           {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+            </section>
+
+           
+           <section id="about">
+             <h2>About</h2>
+             <section class="about-main">
+                <p>I’m {{site.name}}, a Senior Mobile Designer at Raken working on design systems. I’ve been at Raken since early 2019.</p>
+                <p>Before joining Raken, I was co-founder at Code Cartel and was responsible for designing a wide range of client projects.</p>
+                <p>Before getting into design, I worked at a fine art gallery researching and discovering rare vintage photographs.</p>
+                <p>I'm most passionate about mobile product, but have extensive experience across web and desktop too. I'm interested in developing design systems and working closely with developers to produce quality digital products.</p>
+                <p>When I'm not working, I enjoy learning to code and mentoring younger designers on a wide range of expertise.</p>
+             </section>
+             <section class="about-contact">
+                <h3>Get In Touch</h3>
+                <p>The best way to reach me is via <a href="mailto:{{site.email}}">email</a> or via <a href="{{site.linkedin}}" target="_blank">LinkedIn</a>.</p>
+             </section>
+            
+           </section>
+           {% include footer.html %}
+        </div>
+
+        {% include scripts.html %}
+    </body>
+</html>

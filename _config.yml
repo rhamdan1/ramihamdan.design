@@ -1,0 +1,23 @@
+# Site settings
+title: The Portfolio of Rami Hamdan
+email: rami.k.hamdan@gmail.com
+description: "Product designer and prototyper living in San Diego."
+url: "http://ramihamdan.design"
+github:  https://github.com/rhamdan1/
+linkedin: https://www.linkedin.com/in/rami-hamdan
+name: Rami Hamdan
+
+
+# Build settings
+markdown: kramdown
+theme: minima
+gems:
+  - jekyll-feed
+  - jekyll-redirect-from
+exclude:
+  - Gemfile
+  - Gemfile.lock
+plugins_dir:
+  - jekyll-redirect-from
+
+include: ['_pages']
